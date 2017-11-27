@@ -1,0 +1,4 @@
+<resources>
+    <string name="app_name">Flisters</string>
+    <string name="facebook_app_id">FB_KEY</string>
+</resources>
