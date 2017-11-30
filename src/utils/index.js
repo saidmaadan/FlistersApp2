@@ -54,3 +54,26 @@ export function normalizeProfile (email, first_name, last_name, full_name, image
     avatar: image || '',
   }
 }
+
+export function normalizeReservations(reservations) {
+  return reservations.map(reservation => ({
+    id: reservation.id || '',
+    guest: reservation.guest ? {
+      email: reservation.guest.email || '',
+      first_name: reservation.guest.first_name || '',
+      last_name: reservation.guest.last_name || '',
+      full_name: reservation.guest.full_name || '',
+      avatar: reservation.guest.image || '',
+    } : {
+      email: '',
+      first_name: '',
+      last_name: '',
+      full_name: '',
+      avatar: '',
+    },
+    total: reservation.total || '',
+    startDate: reservation.start_date || '',
+    endDate: reservation.end_date || '',
+    status: reservation.status || '',
+  }))
+}
